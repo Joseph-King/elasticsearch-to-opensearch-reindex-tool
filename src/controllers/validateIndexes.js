@@ -44,10 +44,10 @@ const validateContents = async (indexes) => {
             }
 
             for (let i = 0; i < esDocs.length; i++) {
-                if (JSON.stringify(esDocs[i]) !== JSON.stringify(osDocs[i])) {
+                if (JSON.stringify(esDocs[i]["_source"]) !== JSON.stringify(osDocs[i]["_source"])) {
                     console.error(`Document mismatch found in index ${index} at document ${i}:`)
-                    console.error(`ElasticSearch document: ${JSON.stringify(esDocs[i])}`)
-                    console.error(`OpenSearch document: ${JSON.stringify(osDocs[i])}`)
+                    console.error(`ElasticSearch document: ${JSON.stringify(esDocs[i]["_source"])}`)
+                    console.error(`OpenSearch document: ${JSON.stringify(osDocs[i]["_source"])}`)
                 
                     throw new Error(`Index ${index} has different documents in ElasticSearch and OpenSearch.`)
                 }
