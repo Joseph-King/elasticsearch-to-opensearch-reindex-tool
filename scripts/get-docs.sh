@@ -1,0 +1,2 @@
+docker exec -it elasticsearch curl -X GET -H "Content-Type: application/json" --user "$ELASTICSEARCH_USERNAME:$ELASTICSEARCH_PASSWORD" http://localhost:9200/$1/_search?pretty
+docker exec -it opensearch curl -X GET -H "Content-Type: application/json" --user "$OPENSEARCH_USERNAME:$OPENSEARCH_PASSWORD" http://localhost:9200/$1/_search?pretty
